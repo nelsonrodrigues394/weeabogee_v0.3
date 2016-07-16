@@ -1,0 +1,23 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/jobs.rpy", line 237, in script
+    if $ constituicao.getLevel >= 3:
+SyntaxError: invalid syntax (game/jobs.rpy, line 237)
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/jobs.rpy", line 237, in script
+    if $ constituicao.getLevel >= 3:
+  File "C:\Users\Nelson\Downloads\renpy-6.99.10-sdk\renpy\ast.py", line 1648, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Nelson\Downloads\renpy-6.99.10-sdk\renpy\python.py", line 1605, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Nelson\Downloads\renpy-6.99.10-sdk\renpy\python.py", line 512, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/jobs.rpy, line 237)
+
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.10.1227
+A Ren'Py Game 0.0

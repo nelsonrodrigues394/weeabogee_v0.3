@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/stats.rpy", line 3: expected an indented block
+    def __init__(self, nome="", experience=0, level=1, maxLevel=10, maxExp=100):
+       ^
+    
+
+Ren'Py Version: Ren'Py 6.99.10.1227
