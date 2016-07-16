@@ -12,7 +12,7 @@ screen Kaiser:
         at Position(xanchor = 0.0,xpos = 0.21, yanchor = 0.0, ypos = 0.09)        
         
         vbox:
-            label "{b}{size=+12}Alvere Moreau{/size}{/b}"
+            label "{b}{size=+12}Alvere Morseau{/size}{/b}"
         
             text "Rank: Auxiliary"
             text "Occupation: Gear Pilot/Mechanic"
