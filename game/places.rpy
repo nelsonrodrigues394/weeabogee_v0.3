@@ -281,11 +281,21 @@ label hospital:
     elif current_daytime == "Noite":
         scene hosp_c
         
-    #######CHECK DE EVENTOS AQUI#######
-    
-    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
-    
-    jump center
+    menu:
+        "Procurar emprego" if hosp_job1 == False:
+            call pass_hour
+            call check_daytime
+            call hour_check
+            jump hosp_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and hosp_job1:
+            call check_daytime
+            call hour_check
+            jump hosp_jobw
+        "Retornar":
+            call pass_hour
+            call check_daytime
+            call hour_check
+            jump center
 
 label office:
     
@@ -301,11 +311,15 @@ label office:
     "Você está na área empresarial. O que deseja fazer?"
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if office_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump office_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and office_job1:
+            call check_daytime
+            call hour_check
+            jump office_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -319,11 +333,15 @@ label restaurant:
     scene restau_1
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if restau_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump restau_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and restau_job1:
+            call check_daytime
+            call hour_check
+            jump restau_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -337,11 +355,15 @@ label pub:
     scene pub
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if pub_job1 ==  False:
             call pass_hour
             call check_daytime
             call hour_check
             jump pub_jobi
+        "Trabalhar" if 18 <= clock.hour < 19 and pub_job1:
+            call check_daytime
+            call hour_check
+            jump pub_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -380,11 +402,15 @@ label gym:
             call check_daytime
             call hour_check
             jump workout
-        "Procurar emprego":
+        "Procurar emprego" if gym_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump gym_jobi
+        "Trabalhar" if 10 <= clock.hour < 11and gym_job1:
+            call check_daytime
+            call hour_check
+            jump gym_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -400,11 +426,15 @@ label arcade:
     "Você está no arcade. O que deseja fazer?"
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if arcade_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump arcade_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 arcade_job1:
+            call check_daytime
+            call hour_check
+            jump arcade_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -554,11 +584,15 @@ label school:
             call check_daytime
             call hour_check
             jump dorms
-        "Procurar emprego":
+        "Procurar emprego" if school_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and school_job1:
+            call check_daytime
+            call hour_check
+            jump school_jobw
             
 label church:
     
@@ -612,11 +646,15 @@ label convenience:
     "Você está na loja de conveniências. O que deseja fazer?"
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if conven_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump conven_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and conven_job1:
+            call check_daytime
+            call hour_check
+            jump conven_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -701,11 +739,15 @@ label beach:
     "Você está na praia. O que deseja fazer?"
     
     menu:
-        "Procurar emprego":
+        "Procurar emprego" if beach_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump beach_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and beach_job1:
+            call check_daytime
+            call hour_check
+            jump beach_jobw
         "Retornar":
             call pass_hour
             call check_daytime
@@ -759,11 +801,15 @@ label inn:
             call check_daytime
             call hour_check
             jump onsen
-        "Procurar emprego":
+        "Procurar emprego" if inn_job1 == False:
             call pass_hour
             call check_daytime
             call hour_check
             jump inn_jobi
+        "Trabalhar" if 10 <= clock.hour < 11 and inn_job1:
+            call check_daytime
+            call hour_check
+            jump inn_jobw
         "Retornar":
             call pass_hour
             call check_daytime
