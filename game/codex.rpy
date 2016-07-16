@@ -323,6 +323,6 @@ screen Hovercraft:
         vbox:
             label "{b}{size=+12}Hovercraft{/size}{/b}"
         
-            text "Hovercraft on Terra Nova..."
+            text "KAISER"
 
 
