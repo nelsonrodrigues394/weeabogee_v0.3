@@ -1,6 +1,6 @@
 ##############################################################################
 # Personnel Profiles
-# SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   S SSSSSS  
+# SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  
 # Screen that's used to display information on the 72nd Peacekeeper Regiment.
 
 screen Kaiser:
