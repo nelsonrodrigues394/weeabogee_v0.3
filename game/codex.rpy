@@ -1,6 +1,6 @@
 ##############################################################################
 # Personnel Profiles
-# SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+# SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSxsxsSSSSSSSSSSSSSSSSSSSSS
 # Screen that's used to display information on the 72nd Peacekeeper Regiment.
 
 screen Kaiser:
@@ -272,7 +272,7 @@ screen Takeem_Brhavo:
         vbox:
             label "{b}{size=+12}Takeem Brhavo{/size}{/b}"
         
-            text "Rank: Civillian"
+            text "Rank: Civiillian"
             text "Occupation: Actor"
             text "Birthday: ???"
             text "Favorite Food: ???"
