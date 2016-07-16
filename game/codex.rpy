@@ -3,7 +3,7 @@
 #
 # Screen that's used to display information on the 72nd Peacekeeper Regiment.
 
-screen Alvere_Moreau:
+screen Kaiser:
     
     tag menu3
     
@@ -20,6 +20,24 @@ screen Alvere_Moreau:
             text "Favorite Food: Glass Shark"
         
             text "Alvere Moreau is an auxillary upon Landship Nagato. He is extremely hyper and annoying."
+
+screen Alvere_Moreau:
+    
+    tag menu3
+    
+    frame:
+        style_group "info3"
+        at Position(xanchor = 0.0,xpos = 0.21, yanchor = 0.0, ypos = 0.09)        
+        
+        vbox:
+            label "{b}{size=+12}Alvere Moreau{/size}{/b}"
+        
+            text "Rank: GOD"
+            text "Occupation: GOD"
+            text "Birthday: WIN.19.TN.1919"
+            text "Favorite Food: GOD"
+        
+            text "Alvere Moreau is a GOD"
 
 screen Anastazia_Rucker:
         
@@ -323,6 +341,6 @@ screen Hovercraft:
         vbox:
             label "{b}{size=+12}Hovercraft{/size}{/b}"
         
-            text "Hovercraft on Terra Nova..."
+            text "skull"
 
 
