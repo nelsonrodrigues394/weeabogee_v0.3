@@ -63,6 +63,6 @@ label sleep_time:
     "Você teve uma ótima noite de sono."
     
     $ calendar.next()
-    $ clock.newDayHour()
+    $ clock.dayHour()
     
     jump day

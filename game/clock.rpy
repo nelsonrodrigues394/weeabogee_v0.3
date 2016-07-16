@@ -20,7 +20,7 @@ init python:
         def jobHour(self):
             self.hour += 6
         
-        def newDayHour(self):
+        def dayHour(self):
             self.hour = 6
             self.minute = 0
         
