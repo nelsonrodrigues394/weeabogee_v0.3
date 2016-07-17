@@ -14,7 +14,7 @@ label hour_check:
 label check_daytime:
     
     if clock.hour == 7:
-        $ current_daytime = "ManhÃ£"
+        $ current_daytime = "Manhã"
     elif clock.hour == 18:
         $ current_daytime = "Tarde"
     elif clock.hour == 19:
@@ -23,14 +23,14 @@ label check_daytime:
     
 label home:
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene home_a
     elif current_daytime == "Tarde":
         scene home_b
     elif current_daytime == "Noite":
         scene home_c
         
-    "O que vocÃª deseja fazer?"
+    "O que você deseja fazer?"
     
     menu:
         "Sair de casa":
@@ -42,13 +42,13 @@ label home:
                     call hour_check
                     jump center
                 
-                "SubÃºrbio":
+                "Subúrbio":
                     call pass_hour
                     call check_daytime
                     call hour_check
                     jump suburbs
                 
-                "EstaÃ§Ã£o":
+                "Estação":
                     call pass_hour
                     call check_daytime
                     call hour_check
@@ -69,7 +69,7 @@ label computer:
     
     #######ADICIONAR CONTENT AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump home
 
@@ -77,14 +77,14 @@ label center:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene center_a
     elif current_daytime == "Tarde":
         scene center_b
     elif current_daytime == "Noite":
         scene center_c
     
-    "VocÃª estÃ¡ no centro. Para onde deseja ir agora?"
+    "Você está no centro. Para onde deseja ir agora?"
     
     menu:
         "Ir ao Shopping Center":
@@ -102,17 +102,17 @@ label center:
             call check_daytime
             call hour_check
             jump hospital
-        "Visitar um escritÃ³rio":
+        "Visitar um escritório":
             call pass_hour
             call check_daytime
             call hour_check
             jump office
-        "Ir Ã  um restaurante":
+        "Ir à um restaurante":
             call pass_hour
             call check_daytime
             call hour_check
             jump restaurant
-        "Ir Ã  um bar" if current_daytime == "Noite":
+        "Ir à um bar" if current_daytime == "Noite":
             call pass_hour
             call check_daytime
             call hour_check
@@ -122,7 +122,7 @@ label center:
             call check_daytime
             call hour_check
             if current_daytime != "Noite":
-                "VocÃª nÃ£o encontra nada aberto"
+                "Você não encontra nada aberto"
                 jump center
             else:
                 jump underworld
@@ -136,14 +136,14 @@ label suburbs:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene suburbs_a
     elif current_daytime == "Tarde":
         scene suburbs_b
     elif current_daytime == "Noite":
         scene suburbs_c
         
-    "VocÃª estÃ¡ no subÃºrbio. Para onde deseja ir agora?"
+    "Você está no subúrbio. Para onde deseja ir agora?"
     
     menu:
         "Ir ao parque":
@@ -151,12 +151,12 @@ label suburbs:
             call check_daytime
             call hour_check
             jump park
-        "Ir Ã  escola":
+        "Ir à escola":
             call pass_hour
             call check_daytime
             call hour_check
             jump school
-        "Ir Ã  igreja":
+        "Ir à igreja":
             call pass_hour
             call check_daytime
             call hour_check
@@ -166,12 +166,12 @@ label suburbs:
             call check_daytime
             call hour_check
             jump playground
-        "Ir Ã  loja de conveniÃªncia":
+        "Ir à loja de conveniência":
             call pass_hour
             call check_daytime
             call hour_check
             jump convenience
-        "Caminhar pelo subÃºrbio":
+        "Caminhar pelo subúrbio":
             call pass_hour
             call check_daytime
             call hour_check
@@ -187,14 +187,14 @@ label station:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene station_a
     elif current_daytime == "Tarde":
         scene station_b
     elif current_daytime == "Noite":
         scene station_c
     
-    "VocÃª estÃ¡ na estaÃ§Ã£o de trens. O que deseja fazer?"
+    "Você está na estação de trens. O que deseja fazer?"
     
     menu:
         "Comprar uma passagem para a zona rural":
@@ -225,7 +225,7 @@ label train:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene train_a
     elif current_daytime == "Tarde":
         scene train_b
@@ -244,10 +244,10 @@ label shopping:
     
     scene shopping
         
-    "VocÃª estÃ¡ no Shopping Center. O que deseja fazer?"
+    "Você está no Shopping Center. O que deseja fazer?"
     
     menu:
-        "Ir Ã  academia":
+        "Ir à academia":
             call pass_hour
             call check_daytime
             call hour_check
@@ -281,14 +281,14 @@ label maidcafe:
     else:
         #######CHECK DE EVENTOS AQUI#######
     
-        "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+        "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
         jump center
     
 label hospital:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene hosp_a
     elif current_daytime == "Tarde":
         scene hosp_b
@@ -315,14 +315,14 @@ label office:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene office_a
     elif current_daytime == "Tarde":
         scene office_b
     elif current_daytime == "Noite":
         scene office_c
     
-    "VocÃª estÃ¡ na Ã¡rea empresarial. O que deseja fazer?"
+    "Você está na área empresarial. O que deseja fazer?"
     
     menu:
         "Procurar emprego" if office_job1 == False:
@@ -398,9 +398,9 @@ label underworld:
             call check_daytime
             call hour_check
             jump brothel
-        "Seguir para a Ã¡rea dos moteis":
+        "Seguir para a área dos moteis":
             jump motel
-        "Ir Ã  loja clandestina" if u_store:
+        "Ir à loja clandestina" if u_store:
             jump underworld_buy
         
 #LOCAIS DO SHOPPING
@@ -411,7 +411,7 @@ label gym:
     
     scene gym
     
-    "VocÃª estÃ¡ na academia. O que deseja fazer?"
+    "Você está na academia. O que deseja fazer?"
     
     menu:
         "Malhar":       
@@ -439,7 +439,7 @@ label arcade:
     
     scene arcade
     
-    "VocÃª estÃ¡ no arcade. O que deseja fazer?"
+    "Você está no arcade. O que deseja fazer?"
     
     menu:
         "Procurar emprego" if arcade_job1 == False:
@@ -461,31 +461,31 @@ label shopping_buy:
     
     call check_daytime
     
-    "O que vocÃª deseja comprar?"
+    "O que você deseja comprar?"
     
     menu:
         "Computador: $1.000":
             if money < 1000:
-                "VocÃª nÃ£o tem dinheiro suficiente para comprar isso."
+                "Você não tem dinheiro suficiente para comprar isso."
                 jump shopping_buy
             else:
-                "VocÃª comprou um computador."
+                "Você comprou um computador."
                 $ computer = True
                 jump shopping_buy
         "Hacking for dummies: $300":
             if money < 300:
-                "VocÃª nÃ£o tem dinheiro suficiente para comprar isso."
+                "Você não tem dinheiro suficiente para comprar isso."
                 jump shopping_buy
             else:
-                "VocÃª comprou o livro."
+                "Você comprou o livro."
                 $ hacking.setLevel(1)
                 jump shopping_buy
         "Hypnosis for dummies: $400":
             if money < 400:
-                "VocÃª nÃ£o tem dinheiro suficiente para comprar isso."
+                "Você não tem dinheiro suficiente para comprar isso."
                 jump shopping_buy
             else:
-                "VocÃª comprou o livro."
+                "Você comprou o livro."
                 $ hipnose.setLevel(1)
                 jump shopping_buy
         "Retornar":
@@ -499,7 +499,7 @@ label shopping_walk:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump shopping
 
@@ -514,7 +514,7 @@ label brothel:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump underworld
     
@@ -526,7 +526,7 @@ label motel:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump underworld
     
@@ -536,30 +536,30 @@ label underworld_buy:
     
     scene underworld_store
     
-    #######OPÃ‡Ã•ES DE COMPRA AQUI#######
+    #######OPÇÕES DE COMPRA AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump underworld
     
     
-#LOCAIS DO SUBÃšRBIO
+#LOCAIS DO SUBÚRBIO
 
 label park:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene park_a
     elif current_daytime == "Tarde":
         scene park_b
     elif current_daytime == "Noite":
         scene park_c
     
-    "VocÃª estÃ¡ no parque. O que deseja fazer?"
+    "Você está no parque. O que deseja fazer?"
     
     menu:
-        "Observar os pÃ¡ssaros":
+        "Observar os pássaros":
             jump bird_watching
     
     jump suburbs
@@ -568,17 +568,17 @@ label school:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene park_a
     elif current_daytime == "Tarde":
         scene park_b
     elif current_daytime == "Noite":
         scene park_c
         
-    "VocÃª estÃ¡ na escola. O que dejesa fazer?"
+    "Você está na escola. O que dejesa fazer?"
     
     menu:
-        "Ir Ã  uma sala de aula" if school_job1:
+        "Ir à uma sala de aula" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
@@ -588,37 +588,37 @@ label school:
             call check_daytime
             call hour_check
             jump school_bathroom
-        "Ir Ã  Ã¡rea de esportes" if school_job1:
+        "Ir à área de esportes" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump sports_area
-        "Ir ao terraÃ§o" if school_job1:
+        "Ir ao terraço" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_roof
-        "Ir Ã  cafeteria" if school_job1:
+        "Ir à cafeteria" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump cafeteria
-        "Ir Ã  biblioteca" if school_job1:
+        "Ir à biblioteca" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump library
-        "Ir Ã  enfermaria" if school_job1:
+        "Ir à enfermaria" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump infirmary
-        "Ir ao laboratÃ³rio de quÃ­mica" if school_job1 and lockpick.getLevel() >= 2:
+        "Ir ao laboratório de química" if school_job1 and lockpick.getLevel() >= 2:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_lab
-        "Ir ao dormitÃ³rio" if constituicao.getLevel() == 10:
+        "Ir ao dormitório" if constituicao.getLevel() == 10:
             call pass_hour
             call check_daytime
             call hour_check
@@ -637,18 +637,18 @@ label church:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene church_a
     elif current_daytime == "Tarde":
         scene church_b
     elif current_daytime == "Noite":
         scene church_c
         
-    "VocÃª estÃ¡ na igreja. O que deseja fazer?"
+    "Você está na igreja. O que deseja fazer?"
 
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump suburbs
     
@@ -656,18 +656,18 @@ label playground:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene playground_a
     elif current_daytime == "Tarde":
         scene playground_b
     elif current_daytime == "Noite":
         scene playground_c
         
-    "VocÃª estÃ¡ no playground. O que deseja fazer?"
+    "Você está no playground. O que deseja fazer?"
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump suburbs
     
@@ -675,14 +675,14 @@ label convenience:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene playground_a
     elif current_daytime == "Tarde":
         scene playground_b
     elif current_daytime == "Noite":
         scene playground_c
         
-    "VocÃª estÃ¡ na loja de conveniÃªncias. O que deseja fazer?"
+    "Você está na loja de conveniências. O que deseja fazer?"
     
     menu:
         "Procurar emprego" if conven_job1 == False:
@@ -704,11 +704,11 @@ label suburbs_walk:
     
     call check_daytime
     
-    "VocÃª estÃ¡ no playground. O que deseja fazer?"
+    "Você está no playground. O que deseja fazer?"
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump suburbs
     
@@ -718,7 +718,7 @@ label school_class:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene class_a
     elif current_daytime == "Tarde":
         scene class_b
@@ -727,7 +727,7 @@ label school_class:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
     
@@ -735,7 +735,7 @@ label school_bathroom:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
     
@@ -743,21 +743,21 @@ label sports_area:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene class_a
     elif current_daytime == "Tarde":
         scene class_b
     elif current_daytime == "Noite":
         scene class_c
         
-    "VocÃª estÃ¡ na Ã¡rea aberta da escola. Para onde deseja ir?"
+    "Você está na área aberta da escola. Para onde deseja ir?"
     
     menu:
         "Piscina":
             jump school_pool
-        "GinÃ¡sio":
+        "Ginásio":
             jump school_gym
-        "DepÃ³sito de equipamentos esportivos":
+        "Depósito de equipamentos esportivos":
             jump gymdepo
         "Para as outras quadras":
             jump sports_area_event
@@ -770,7 +770,7 @@ label school_pool:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump sports_area
     
@@ -778,7 +778,7 @@ label school_gym:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene school_gym_a
     elif current_daytime == "Tarde":
         scene school_gym_b
@@ -787,7 +787,7 @@ label school_gym:
         
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump sports_area
 
@@ -797,17 +797,17 @@ label gymdepo:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump sports_area
     
-label sports_area_event: #IMPORTANTÃSSIMO: ISSO VAI NO EVENTS.RPY#
+label sports_area_event: #IMPORTANTÍSSIMO: ISSO VAI NO EVENTS.RPY#
     
     scene black
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump sports_area
 
@@ -815,7 +815,7 @@ label school_roof:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene school_roof_a
     elif current_daytime == "Tarde":
         scene school_roof_b
@@ -824,7 +824,7 @@ label school_roof:
         
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
 
@@ -836,7 +836,7 @@ label cafeteria:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
 
@@ -846,7 +846,7 @@ label library:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
     
@@ -854,7 +854,7 @@ label infirmary:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene infirmary_a
     elif current_daytime == "Tarde":
         scene infirmary_b
@@ -863,7 +863,7 @@ label infirmary:
         
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
     
@@ -879,7 +879,7 @@ label school_lab:
         
         #######CHECK DE EVENTOS AQUI#######
     
-        "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+        "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
         jump school
     
@@ -891,17 +891,17 @@ label dorms:
     
     #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump school
 
-#LOCAIS DA ESTAÃ‡ÃƒO
+#LOCAIS DA ESTAÇÃO
 
 label rural:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene rural_a
     elif current_daytime == "Tarde":
         scene rural_b
@@ -910,7 +910,7 @@ label rural:
     
     #######NOVOS LOCAIS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÃŠ RETORNARÃ AO MENU ANTERIOR"
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
     
     jump station
     
@@ -918,14 +918,14 @@ label mountains:
     
     call check_daytime
         
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene mountains_a
     elif current_daytime == "Tarde":
         scene mountains_b
     elif current_daytime == "Noite":
         scene mountains_c
         
-    "VocÃª estÃ¡ nas montanhas. O que deseja fazer?"
+    "Você está nas montanhas. O que deseja fazer?"
     
     menu:
         "Ir ao templo":
@@ -948,14 +948,14 @@ label beach:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene beach_a
     elif current_daytime == "Tarde":
         scene beach_b
     elif current_daytime == "Noite":
         scene beach_c
         
-    "VocÃª estÃ¡ na praia. O que deseja fazer?"
+    "Você está na praia. O que deseja fazer?"
     
     menu:
         "Procurar emprego" if beach_job1 == False:
@@ -980,14 +980,14 @@ label shrine:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene shrine_a
     elif current_daytime == "Tarde":
         scene shrine_b
     elif current_daytime == "Noite":
         scene shrine_c
         
-    "VocÃª estÃ¡ no templo. O que deseja fazer?"
+    "Você está no templo. O que deseja fazer?"
     
     menu:
         "Caminhar pelo templo":
@@ -1005,14 +1005,14 @@ label inn:
     
     call check_daytime
     
-    if current_daytime == "ManhÃ£":
+    if current_daytime == "Manhã":
         scene inn_a
     elif current_daytime == "Tarde":
         scene inn_b
     elif current_daytime == "Noite":
         scene inn_c  
         
-    "VocÃª estÃ¡ no hotel. O que deseja fazer?"
+    "Você está no hotel. O que deseja fazer?"
     
     menu:
         "Ir ao onsen":
