@@ -8,6 +8,7 @@
 
 # Grandes BGs
 
+image bg black = "images/bg/black.jpg"
 image bg home_a = "images/bg/home_a.jpg"
 image bg home_b = "images/bg/home_b.jpg"
 image bg home_c = "images/bg/home_c.jpg"
