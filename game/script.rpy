@@ -27,6 +27,8 @@ label start:
     $ hacking = Level("Hacking", 0, 0)
     $ labSkill = Level("Sinteticos",0 ,0)
     
+    $ computer = False
+    
     $ was_home = True
     
     "Seja bem-vindo."
