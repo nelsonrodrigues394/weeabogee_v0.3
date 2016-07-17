@@ -56,8 +56,22 @@ label home:
                 
         
         "Ficar em casa":
+            menu:
+                "Mexer no computador" if computer:
+                    jump computer
+                "Ler um livro":
+                    jump book_reading
             jump stay_home
 
+label computer:
+    
+    scene computer
+    
+    #######ADICIONAR CONTENT AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump home
 
 label center:
     
@@ -183,26 +197,24 @@ label station:
     "Você está na estação de trens. O que deseja fazer?"
     
     menu:
-        "Pegar um trem para a zona rural":
+        "Comprar uma passagem para a zona rural":
+            $ money -= 10
             call pass_hour
             call check_daytime
             call hour_check
             jump rural
-        "Pegar um trem para as montanhas":
+        "Comprar uma passagem para as montanhas":
+            $ money -= 10
             call pass_hour
             call check_daytime
             call hour_check
             jump mountains
-        "Pegar um trem para a praia":
+        "Comprar uma passagem para a praia":
+            $ money -= 10
             call pass_hour
             call check_daytime
             call hour_check
             jump beach
-        "Pegar um trem para o parque de diversões":
-            call pass_hour
-            call check_daytime
-            call hour_check
-            jump amus_park
         "Ir para casa":
             call pass_hour
             call check_daytime
@@ -264,11 +276,13 @@ label maidcafe:
     
     scene maidcafe
         
-    #######CHECK DE EVENTOS AQUI#######
+    if lockpick.getLevel() == 0:
+        jump lp_event
+    else:
+        #######CHECK DE EVENTOS AQUI#######
     
-    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
-    
-    jump center
+        "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+        jump center
     
 label hospital:
     
@@ -355,6 +369,8 @@ label pub:
     scene pub
     
     menu:
+        "Socializar com estranhos":
+            jump pub_social
         "Procurar emprego" if pub_job1 ==  False:
             call pass_hour
             call check_daytime
@@ -377,14 +393,14 @@ label underworld:
     scene underworld
     
     menu:
-        "Ir ao puteiro":
+        "Ir ao puteiro" if reputacao.getLevel() >= 3:
             call pass_hour
             call check_daytime
             call hour_check
             jump brothel
         "Seguir para a área dos moteis":
             jump motel
-        "Ir à loja clandestina": #ADICIONAR UM IF CHECK AQUI
+        "Ir à loja clandestina" if u_store:
             jump underworld_buy
         
 #LOCAIS DO SHOPPING
@@ -445,9 +461,35 @@ label shopping_buy:
     
     call check_daytime
     
-    #######OPÇÕES DE COMPRA AQUI#######
+    "O que você deseja comprar?"
     
-    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    menu:
+        "Computador: $1.000":
+            if money < 1000:
+                "Você não tem dinheiro suficiente para comprar isso."
+                jump shopping_buy
+            else:
+                "Você comprou um computador."
+                $ computer = True
+                jump shopping_buy
+        "Hacking for dummies: $300":
+            if money < 300:
+                "Você não tem dinheiro suficiente para comprar isso."
+                jump shopping_buy
+            else:
+                "Você comprou o livro."
+                $ hacking.setLevel(1)
+                jump shopping_buy
+        "Hypnosis for dummies: $400":
+            if money < 400:
+                "Você não tem dinheiro suficiente para comprar isso."
+                jump shopping_buy
+            else:
+                "Você comprou o livro."
+                $ hipnose.setLevel(1)
+                jump shopping_buy
+        "Retornar":
+            jump shopping_buy
     
     jump shopping
     
@@ -514,9 +556,11 @@ label park:
     elif current_daytime == "Noite":
         scene park_c
     
-    #######CHECK DE EVENTOS AQUI#######
+    "Você está no parque. O que deseja fazer?"
     
-    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    menu:
+        "Observar os pássaros":
+            jump bird_watching
     
     jump suburbs
     
@@ -534,52 +578,47 @@ label school:
     "Você está na escola. O que dejesa fazer?"
     
     menu:
-        "Invadir a escola":
-            call pass_hour
-            call check_daytime
-            call hour_check
-            jump school_invade
-        "Ir à uma sala de aula":#ADICIONAR UM IF CHECK AQUI
+        "Ir à uma sala de aula" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_class
-        "Ir ao banheiro":#ADICIONAR UM IF CHECK AQUI
+        "Ir ao banheiro" if constituicao.getLevel() == 10:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_bathroom
-        "Ir à área de esportes":#ADICIONAR UM IF CHECK AQUI
+        "Ir à área de esportes" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump sports_area
-        "Ir ao terraço":#ADICIONAR UM IF CHECK AQUI
+        "Ir ao terraço" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_roof
-        "Ir à cafeteria":#ADICIONAR UM IF CHECK AQUI
+        "Ir à cafeteria" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump cafeteria
-        "Ir à biblioteca":#ADICIONAR UM IF CHECK AQUI
+        "Ir à biblioteca" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump library
-        "Ir à enfermaria":#ADICIONAR UM IF CHECK AQUI
+        "Ir à enfermaria" if school_job1:
             call pass_hour
             call check_daytime
             call hour_check
             jump infirmary
-        "Ir ao laboratório de química":#ADICIONAR UM IF CHECK AQUI
+        "Ir ao laboratório de química" if school_job1 and lockpick.getLevel() >= 2:
             call pass_hour
             call check_daytime
             call hour_check
             jump school_lab
-        "Ir ao dormitório":#ADICIONAR UM IF CHECK AQUI
+        "Ir ao dormitório" if constituicao.getLevel() == 10:
             call pass_hour
             call check_daytime
             call hour_check
@@ -675,6 +714,186 @@ label suburbs_walk:
     
 #LOCAIS DA ESCOLA
 
+label school_class:
+    
+    call check_daytime
+    
+    if current_daytime == "Manhã":
+        scene class_a
+    elif current_daytime == "Tarde":
+        scene class_b
+    elif current_daytime == "Noite":
+        scene class_c
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+    
+label school_bathroom:
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+    
+label sports_area:
+    
+    call check_daytime
+    
+    if current_daytime == "Manhã":
+        scene class_a
+    elif current_daytime == "Tarde":
+        scene class_b
+    elif current_daytime == "Noite":
+        scene class_c
+        
+    "Você está na área aberta da escola. Para onde deseja ir?"
+    
+    menu:
+        "Piscina":
+            jump school_pool
+        "Ginásio":
+            jump school_gym
+        "Depósito de equipamentos esportivos":
+            jump gymdepo
+        "Para as outras quadras":
+            jump sports_area_event
+            
+label school_pool:
+    
+    call check_daytime
+    
+    scene school_pool
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump sports_area
+    
+label school_gym:
+    
+    call check_daytime
+    
+    if current_daytime == "Manhã":
+        scene school_gym_a
+    elif current_daytime == "Tarde":
+        scene school_gym_b
+    elif current_daytime == "Noite":
+        scene school_gym_c
+        
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump sports_area
+
+label gymdepo:
+    
+    scene gymdepo
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump sports_area
+    
+label sports_area_event: #IMPORTANTÍSSIMO: ISSO VAI NO EVENTS.RPY#
+    
+    scene black
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump sports_area
+
+label school_roof:
+    
+    call check_daytime
+    
+    if current_daytime == "Manhã":
+        scene school_roof_a
+    elif current_daytime == "Tarde":
+        scene school_roof_b
+    elif current_daytime == "Noite":
+        scene school_roof_c
+        
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+
+label cafeteria:
+    
+    call check_daytime
+    
+    scene cafeteria
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+
+label library:
+    
+    call check_daytime
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+    
+label infirmary:
+    
+    call check_daytime
+    
+    if current_daytime == "Manhã":
+        scene infirmary_a
+    elif current_daytime == "Tarde":
+        scene infirmary_b
+    elif current_daytime == "Noite":
+        scene infirmary_c
+        
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+    
+label school_lab:
+    
+    call check_daytime
+    
+    scene school_lab
+    
+    if labSkill.getLevel() == 0:
+        jump lab_event
+    else:
+        
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
+    
+label dorms:
+    
+    call check_daytime
+    
+    scene dorms
+    
+    #######CHECK DE EVENTOS AQUI#######
+    
+    "SOB DESENVOLVIMENTO. VOCÊ RETORNARÁ AO MENU ANTERIOR"
+    
+    jump school
 
 #LOCAIS DA ESTAÇÃO
 
